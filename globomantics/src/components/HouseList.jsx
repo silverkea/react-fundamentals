@@ -1,48 +1,10 @@
 import HouseRow from './HouseRow';
-//import { useEffect, useState, useRef } from 'react';
 import useHouses from '../hooks/useHouses';
 import loadingStatus from '../helpers/loadingStatus';
 import LoadingIndicator from './LoadingIndicator';
 import ErrorBoundary from './ErrorBoundary';
 
-// const houseArray = [
-//   {
-//     id: 1,
-//     address: '12 Valley of Kings, Geneva',
-//     country: 'Switzerland',
-//     price: 120000,
-//   },
-//   {
-//     id: 2,
-//     address: '89 Road of Forks, Bern',
-//     country: 'Switzerland',
-//     price: 590000,
-//   },
-// ];
-
-// const fetchHouses = fetch('https://localhost:4000/house').then((r) => r.json());
-
-const HouseList = ({ selectHouse }) => {
-  //   const [houses, setHouses] = useState([]);
-  //   const counter = useRef(0);
-
-  //   useEffect(() => {
-  //     const fecthHouses = async () => {
-  //       const response = await fetch('https://localhost:4000/house');
-  //       const houses = await response.json();
-  //       setHouses(houses);
-
-  //       return () => {
-  //         // Cleanup code if needed
-  //       };
-  //     };
-  //     fecthHouses();
-  //     counter.current++;
-  //   }, []);
-
-  //   const houseResult = use(fetchHouses);
-  //   const [houses, setHouses] = useState(houseResult);
-
+const HouseList = () => {
   const { houses, setHouses, loadingState } = useHouses();
 
   if (loadingState !== loadingStatus.loaded) {
@@ -79,7 +41,7 @@ const HouseList = ({ selectHouse }) => {
         <tbody className="table-group-divider">
           <ErrorBoundary fallback="Error loading houses">
             {houses.map((h) => (
-              <HouseRow key={h.id} house={h} selectHouse={selectHouse} />
+              <HouseRow key={h.id} house={h} />
             ))}
           </ErrorBoundary>
         </tbody>
