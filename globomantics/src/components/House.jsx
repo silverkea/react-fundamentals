@@ -1,5 +1,6 @@
 import currencyFormatter from '../helpers/currencyFormatters';
 import { useLocation } from 'react-router';
+import Bids from './Bids';
 
 const House = () => {
 
@@ -36,6 +37,7 @@ const House = () => {
         <div className="row">
           <div className="col-12 mt-3">{house.description}</div>
         </div>
+        <Bids house={house} />
       </div>
     </div>
   );
