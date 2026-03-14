@@ -1,9 +1,10 @@
-import { useContext } from 'react';
 import currencyFormatter from '../helpers/currencyFormatters';
-import navigationContext from '../navigation/navigationContext';
+import { useLocation } from 'react-router';
 
 const House = () => {
-  const { param: house } = useContext(navigationContext);
+
+  const location = useLocation();
+  const { house } = location.state;
 
   return (
     <div className="row">
